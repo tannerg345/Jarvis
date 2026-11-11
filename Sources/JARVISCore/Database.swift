@@ -33,6 +33,10 @@ public enum SQLValue: Equatable {
 public struct DatabaseError: Error, CustomStringConvertible {
     public let message: String
     public var description: String { message }
+
+    public init(message: String) {
+        self.message = message
+    }
 }
 
 public typealias Row = [String: SQLValue]
