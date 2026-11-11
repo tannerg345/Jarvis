@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 # Builds JARVIS.app and JARVIS.zip in ./build.
 #
-# Usage: ./scripts/build-app.sh [git ref, e.g. v0.1.0]
+# Usage: ./scripts/build-app.sh   (the version comes from the VERSION file)
 # Works with the free Command Line Tools (xcode-select --install) or Xcode.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-REF="${1:-}"
-VERSION="0.1.0"
-if [[ "$REF" =~ ^v([0-9]+\.[0-9]+\.[0-9]+) ]]; then
-  VERSION="${BASH_REMATCH[1]}"
-fi
+VERSION="$(tr -d '[:space:]' < VERSION)"
 BUILD_NUMBER="${GITHUB_RUN_NUMBER:-1}"
 
 echo "==> Compiling (release, Apple silicon)"

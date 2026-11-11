@@ -16,7 +16,7 @@ Requirements: a Mac with Apple silicon (M1 or later) running macOS 13 Ventura or
 
 ## Install (no Terminal)
 
-1. Open the [Releases page](https://github.com/Tannerg345/jarvis/releases) and download `JARVIS.zip` from the newest release.
+1. Open the [Releases page](https://github.com/tannerg345/Jarvis/releases) and download `JARVIS.zip` from the newest release.
 2. Double-click the zip, then drag **JARVIS** into your **Applications** folder.
 3. **First open only:** right-click JARVIS → **Open** → **Open**. macOS warns because the app isn't signed with a paid Apple developer account. If it doesn't offer Open, go to System Settings → Privacy & Security and click **Open Anyway**.
 4. Allow notifications when asked.
@@ -50,7 +50,7 @@ xcode-select --install
 ```
 
 ```bash
-git clone https://github.com/Tannerg345/jarvis.git
+git clone https://github.com/tannerg345/Jarvis.git jarvis
 ```
 
 ```bash
@@ -62,6 +62,6 @@ cd jarvis && ./scripts/build-app.sh && open build/JARVIS.app
 - `Sources/JARVISCore` — storage (SQLite), the command parser and the butler's phrasing. No UI code; covered by `swift test`.
 - `Sources/JARVIS` — the SwiftUI/AppKit app: windows, menu bar, command bar, notifications, login item.
 - `scripts/build-app.sh` — builds, ad-hoc signs and zips `JARVIS.app`.
-- `.github/workflows/build.yml` — runs the tests and builds the app on every push; a `v*` tag publishes a release.
+- `.github/workflows/build.yml` — runs the tests and builds the app on every push, and publishes a release the first time a new number appears in `VERSION`.
 
 JARVIS is a personal project and is not affiliated with Marvel.
